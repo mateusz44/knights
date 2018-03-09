@@ -1,34 +1,30 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Knight list</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
 
     <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
 <body>
- <div class="container">
- 
- 
-    <table class="table" style="position:absolute;left:200px">
-        <thead>
-            <tr>
-                <td>Guru's activist</td>
-            </tr>
+<div class="container">
 
-        </thead>
-        <tbody>
-        <tr th:each=" person : ${persons}"> 
-            <td th:text="${person.name} "></td> </tr>
-			<tr th:each="gurut : ${gurutasks} ">
-	             <td th:text="${gurut.descr} "></td></tr>
- 		
-        </tbody>
-    </table>
+    <h2>Person details</h2>
+    <p>Pracownik:<span th:text="${person.name} ">Person name</span></p>
+    <div th:if="${person.chef} != null">
+        <p>Szef:<span th:text="${person.chef.name}">Person's chef name</span></p>
     </div>
-<bod>
-</bod>
-</body></html>
+
+    <p><strong>Guru tasks:</strong></p>
+    <div>
+        <div th:each="gurut : ${gurutasks} ">
+            <p th:text="${gurut.descr} "></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -2,77 +2,73 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Knight list</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
 
     <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
 <body>
- <div class="container">
- 
+<div class="container">
+
     <table class="table" style="position:absolute">
         <thead>
-            <tr>
-                <td>Emloyee</td>            
-                <td>Imie</td>
-                <td>wiek</td>
- 
-                <td></td>
-            </tr>
+        <tr>
+            <td>Imie</td>
+            <td>wiek</td>
+            <td>Link</td>
+        </tr>
         </thead>
         <tbody>
-      <tr th:each=" person : ${persons}"> 
-            <td th:text="${person.name} "></td>		
+        <tr th:each=" person : ${persons}">
+            <td th:text="${person.name} "></td>
             <td th:text="${person.age}"></td>
             <td><a th:href="${'/person?id='+person.id}">Podglad</a></td>
         </tr>
- <td>l</td>
- 
+        <td>l</td>
+
         </tbody>
     </table>
     <table class="table" style="position:absolute;left:200px">
         <thead>
-            <tr>
-                <td>Chef</td><td><a th:href="${'/chef'}">Podglad</a></td></tr>
- 
+        <tr>
+            <td>Lista Chefów</td>
+            <td><a th:href="@{'/chefs'}">Podglad</a></td>
+        </tr>
+
         </thead>
         <tbody>
- 		<tr th:each="  chef : ${allChefs}">
+        <tr th:each="  chef : ${allChefs}">
+            <td th:text="${chef.name}"></td>
+        </tr>
 
- 		             <td th:text="${chef.name}"></td>
-  
-             </tr> 
-
- 
         </tbody>
     </table>
-    
-    
-   
-        <table class="table" style="position:absolute;left:400px">
+
+
+    <table class="table" style="position:absolute;left:400px">
         <thead>
-            <tr>
-                <td>Guru activity</td>
-                <td></td>
-            </tr>
+        <tr>
+            <td>Guru activity</td>
+            <td></td>
+        </tr>
         </thead>
         <tbody>
- 		<tr th:each="  gchef : ${gurutaskschef}">
-             <td th:text="${gchef.name}"></td>
-             <td th:text="${gchef.age}"></td>
-             </tr> 
- 		<tr th:each="  gperson : ${gurutasksperson}">
-             <td th:text="${gperson.name}"></td>
-             <td th:text="${gperson.age}"></td>
-             </tr>
- 
+        <tr th:each="  gchef : ${gurutaskschef}">
+            <td th:text="${gchef.name}"></td>
+            <td th:text="${gchef.age}"></td>
+        </tr>
+        <tr th:each="  gperson : ${gurutasksperson}">
+            <td th:text="${gperson.name}"></td>
+            <td th:text="${gperson.age}"></td>
+        </tr>
+
         </tbody>
     </table>
-  
+
     <!--             <td><a th:href="${'/knight?id='+knight.id}">Podglad</a></td>
             <td><a th:href="${'/knight/delete/'+knight.id}">Usun</a></td> -->
- </div>
+</div>
 </body>
 </html>
