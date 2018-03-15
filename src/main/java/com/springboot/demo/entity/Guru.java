@@ -1,4 +1,4 @@
-package domain;
+package com.springboot.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +23,5 @@ public class Guru {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-
 	
 }

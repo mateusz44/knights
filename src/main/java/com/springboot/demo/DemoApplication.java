@@ -5,17 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
-import controllers.PersonController;
-import repository.PersonRepository; 
-import service.PersonService;
-import domain.Person;
+import com.springboot.demo.controllers.PersonController;
+import com.springboot.demo.repository.PersonRepository;
+import com.springboot.demo.service.PersonService;
+import com.springboot.demo.entity.Person;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = {PersonController.class, PersonService.class, PersonRepository.class})
-
-@EntityScan(basePackageClasses = Person.class)
 public class DemoApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
