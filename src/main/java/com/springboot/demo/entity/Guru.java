@@ -23,6 +23,5 @@ public class Guru {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-
 	
 }
